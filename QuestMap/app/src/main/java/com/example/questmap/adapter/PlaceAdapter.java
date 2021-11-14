@@ -3,22 +3,19 @@ package com.example.questmap.adapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.questmap.model.Place;
 import com.example.questmap.databinding.RecyclerRowBinding;
+import com.example.questmap.model.Place;
 import com.example.questmap.view.MapsActivity;
 
 import java.util.List;
 
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceHolder> {
-
     List<Place> placeList;
-
     public PlaceAdapter(List<Place> placeList) {
         this.placeList = placeList;
     }
@@ -34,15 +31,11 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceHolder>
     @Override
     public void onBindViewHolder(@NonNull PlaceAdapter.PlaceHolder holder, int position) {
         holder.recyclerRowBinding.recyclerViewTextView.setText(placeList.get(position).name);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(), MapsActivity.class);
-                intent.putExtra("place",placeList.get(position));
-                intent.putExtra("info","old");
-                holder.itemView.getContext().startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), MapsActivity.class);
+            intent.putExtra("place",placeList.get(position));
+            intent.putExtra("info","old");
+            holder.itemView.getContext().startActivity(intent);
         });
     }
 
@@ -51,7 +44,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceHolder>
         return placeList.size();
     }
 
-    public class PlaceHolder extends RecyclerView.ViewHolder{
+    public static class PlaceHolder extends RecyclerView.ViewHolder{
         RecyclerRowBinding recyclerRowBinding;
         public PlaceHolder(RecyclerRowBinding recyclerRowBinding) {
             super(recyclerRowBinding.getRoot());

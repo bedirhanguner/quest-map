@@ -3,7 +3,6 @@ package com.example.questmap.view;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -33,31 +32,26 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private final CompositeDisposable mDisposable = new CompositeDisposable();
     ArrayList<Place> places;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
         ActionBar actionBar;
         actionBar = getSupportActionBar();
-
         ColorDrawable colorDrawable
                 = new ColorDrawable(Color.parseColor("#FF9800"));
 
-        // Set BackgroundDrawable
-
-        if (Build.VERSION.SDK_INT >= 21) {
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.orange));
-            actionBar.setBackgroundDrawable(colorDrawable);
-        }
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(this.getResources().getColor(R.color.orange));
+        assert actionBar != null;
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         places = new ArrayList<>();
-
         PlaceDatabase db = Room.databaseBuilder(getApplicationContext(),
                 PlaceDatabase.class, "Places").allowMainThreadQueries().build();
 
@@ -68,13 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::handleResponse));
 
-        binding.addPlaceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callMaps();
-            }
-        });
-
+        binding.addPlaceButton.setOnClickListener(view1 -> callMaps());
     }
 
     public void callMaps()
@@ -85,11 +73,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleResponse(List<Place> placeList) {
-
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         PlaceAdapter placeAdapter = new PlaceAdapter(placeList);
         binding.recyclerView.setAdapter(placeAdapter);
-
     }
 
     @Override
