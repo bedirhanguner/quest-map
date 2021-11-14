@@ -10,10 +10,9 @@
         android:id="@+id/recyclerViewTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Test"
-        android:textSize="20sp"
-        android:textColor="@color/purple_700"
         android:layout_margin="6dp"
-        ></TextView>
+        android:text="Test"
+        android:textColor="@color/white"
+        android:textSize="20sp"></TextView>
 
 </LinearLayout>

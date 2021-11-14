@@ -16,13 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuestMap">
         <activity
-            android:name=".view.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".view.SplashActivity"
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="false">
+
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -39,7 +44,8 @@
         <activity
             android:name=".view.MapsActivity"
             android:exported="false"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:theme="@style/Theme.QuestMap" />
     </application>
 
 </manifest>

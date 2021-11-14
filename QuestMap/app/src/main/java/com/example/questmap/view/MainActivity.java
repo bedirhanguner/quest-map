@@ -1,13 +1,15 @@
 package com.example.questmap.view;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
@@ -38,6 +40,22 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#FF9800"));
+
+        // Set BackgroundDrawable
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.orange));
+            actionBar.setBackgroundDrawable(colorDrawable);
+        }
+
         places = new ArrayList<>();
 
         PlaceDatabase db = Room.databaseBuilder(getApplicationContext(),
@@ -50,6 +68,20 @@ public class MainActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::handleResponse));
 
+        binding.addPlaceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callMaps();
+            }
+        });
+
+    }
+
+    public void callMaps()
+    {
+        Intent intent = new Intent(this,MapsActivity.class);
+        intent.putExtra("info","new");
+        startActivity(intent);
     }
 
     private void handleResponse(List<Place> placeList) {
@@ -58,23 +90,6 @@ public class MainActivity extends AppCompatActivity {
         PlaceAdapter placeAdapter = new PlaceAdapter(placeList);
         binding.recyclerView.setAdapter(placeAdapter);
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_main,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.add_place) {
-            Intent intent = new Intent(this,MapsActivity.class);
-            intent.putExtra("info","new");
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
