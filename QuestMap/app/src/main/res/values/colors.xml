@@ -4,4 +4,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple">#2F00DC</color>
+    <color name="bar">#01050E</color>
+    <color name="event">#01050E</color>
+    <color name="background">#12151E</color>
+    <color name="item">#24293A</color>
+    <color name="button">#01050E</color>
+
 </resources>
