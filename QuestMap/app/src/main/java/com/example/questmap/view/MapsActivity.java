@@ -1,7 +1,9 @@
 package com.example.questmap.view;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -9,9 +11,11 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -77,7 +81,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         trackBoolean = false;
         selectedLatitude = 0.0;
         selectedLongitude= 0.0;
-        binding.saveButton.setEnabled(false);
         db = Room.databaseBuilder(getApplicationContext(),
                 PlaceDatabase.class, "Places")
                 .build();
@@ -93,7 +96,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String info = intent.getStringExtra("info");
 
         if (info.equals("new")) {
-            binding.saveButton.setVisibility(View.VISIBLE);
             binding.deleteButton.setVisibility(View.GONE);
 
             locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -132,8 +134,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(latLng).title(placeFromMain.name));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
 
-            binding.placeNameText.setText(placeFromMain.name);
-            binding.saveButton.setVisibility(View.GONE);
             binding.deleteButton.setVisibility(View.VISIBLE);
         }
     }
@@ -144,7 +144,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(latLng));
         selectedLatitude = latLng.latitude;
         selectedLongitude = latLng.longitude;
-        binding.saveButton.setEnabled(true);
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MapsActivity.this);
+        dialog.setTitle("Enter location name");
+
+        final EditText input = new EditText(MapsActivity.this);
+        input .setInputType(InputType.TYPE_CLASS_TEXT);
+        dialog.setView(input);
+
+        dialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Place place = new Place(input.getText().toString(),selectedLatitude,selectedLongitude);
+
+                mDisposable.add(placeDao.insert(place)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(MapsActivity.this::handleResponse));
+
+                Toast.makeText(MapsActivity.this,"Saved",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        dialog.show();
     }
 
     private void handleResponse() {
@@ -155,12 +183,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void save(View view) {
 
-        Place place = new Place(binding.placeNameText.getText().toString(),selectedLatitude,selectedLongitude);
 
-        mDisposable.add(placeDao.insert(place)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(MapsActivity.this::handleResponse));
     }
 
     public void delete(View view) {

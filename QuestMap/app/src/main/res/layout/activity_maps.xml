@@ -11,55 +11,27 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginEnd="2dp"
-        map:layout_constraintBottom_toTopOf="@+id/placeNameText"
+        android:layout_height="match_parent"
+        map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="1.0"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
         tools:context=".view.MapsActivity" />
 
-    <EditText
-        android:id="@+id/placeNameText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:hint="Place Name"
-        android:textColorLink="@color/purple"
-        map:layout_constraintBottom_toTopOf="@+id/saveButton"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toStartOf="parent">
-
-    </EditText>
-
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:onClick="save"
-        android:text="Save"
-        map:layout_constraintBottom_toTopOf="@+id/deleteButton"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.0"
-        map:layout_constraintStart_toStartOf="parent"
-        map:rippleColor="@color/purple" />
-
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/deleteButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/purple"
+        android:backgroundTint="@color/purple"
         android:onClick="delete"
         android:text="Delete"
+        android:clickable="true"
+        android:focusable="true"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toStartOf="parent"
-        map:rippleColor="@color/purple" />
+        map:srcCompat="@android:drawable/ic_delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>
