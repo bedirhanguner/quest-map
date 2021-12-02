@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.10462962962962963" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable/ic_splash.xml" value="0.2037037037037037" />
-        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_main2.xml" value="0.259375" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_maps.xml" value="0.2" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_splash.xml" value="0.1" />
@@ -14,7 +15,7 @@
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/fragment_second.xml" value="0.2" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/layout_dialog.xml" value="0.1" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/recycler_element.xml" value="0.264" />
-        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/recycler_row.xml" value="0.259375" />
+        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/recycler_row.xml" value="0.152" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/menu/menu_main.xml" value="0.259375" />
       </map>
     </option>

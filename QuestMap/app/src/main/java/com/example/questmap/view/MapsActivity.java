@@ -65,7 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(this.getResources().getColor(R.color.orange));
+        window.setStatusBarColor(this.getResources().getColor(R.color.purple));
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -174,7 +174,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         permissionLauncher =
                 registerForActivityResult(new ActivityResultContracts.RequestPermission(), result -> {
                     if(result) {
-                        //permission granted
                         if (ContextCompat.checkSelfPermission(MapsActivity.this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                             Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -185,7 +184,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }
 
                     } else {
-                        //permission denied
                         Toast.makeText(MapsActivity.this,"Permission needed!",Toast.LENGTH_LONG).show();
                     }
                 });

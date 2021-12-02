@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Quest Map</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_maps">MapsActivity</string>
 </resources>

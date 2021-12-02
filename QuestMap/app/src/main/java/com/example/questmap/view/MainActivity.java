@@ -42,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar;
         actionBar = getSupportActionBar();
         ColorDrawable colorDrawable
-                = new ColorDrawable(Color.parseColor("#FF9800"));
+                = new ColorDrawable(Color.parseColor("#2F00DC"));
 
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(this.getResources().getColor(R.color.orange));
+        window.setStatusBarColor(this.getResources().getColor(R.color.purple));
         assert actionBar != null;
         actionBar.setBackgroundDrawable(colorDrawable);
 

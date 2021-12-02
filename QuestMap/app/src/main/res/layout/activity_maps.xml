@@ -27,6 +27,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:hint="Place Name"
+        android:textColorLink="@color/purple"
         map:layout_constraintBottom_toTopOf="@+id/saveButton"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent">
@@ -44,7 +45,9 @@
         android:text="Save"
         map:layout_constraintBottom_toTopOf="@+id/deleteButton"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toStartOf="parent" />
+        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="parent"
+        map:rippleColor="@color/purple" />
 
     <Button
         android:id="@+id/deleteButton"
@@ -57,5 +60,6 @@
         android:text="Delete"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toStartOf="parent" />
+        map:layout_constraintStart_toStartOf="parent"
+        map:rippleColor="@color/purple" />
 </androidx.constraintlayout.widget.ConstraintLayout>
