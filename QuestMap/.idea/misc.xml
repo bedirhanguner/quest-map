@@ -5,9 +5,10 @@
       <map>
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.10462962962962963" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2755208333333333" />
-        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable/ic_splash.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable/ic_splash.xml" value="0.2" />
+        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable/ic_splash_png.xml" value="0.21296296296296297" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/drawable/rounded_border.xml" value="0.2755208333333333" />
-        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_main2.xml" value="0.259375" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_maps.xml" value="0.176" />
         <entry key="..\:/Users/bedir/Desktop/quest-map/QuestMap/app/src/main/res/layout/activity_splash.xml" value="0.1" />
