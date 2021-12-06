@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SplashActivity"
+    tools:context="com.bzk.questmap.view.SplashActivity"
     android:background="@drawable/ic_splash">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

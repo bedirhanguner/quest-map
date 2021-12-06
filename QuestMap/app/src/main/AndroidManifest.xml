@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.questmap">
+    package="com.bzk.questmap">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuestMap">
         <activity
-            android:name=".view.SplashActivity"
+            android:name="com.bzk.questmap.view.SplashActivity"
             android:exported="true" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
         </intent-filter>
         </activity>
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.bzk.questmap.view.MainActivity"
             android:exported="false">
 
         </activity>
@@ -29,7 +29,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".view.MapsActivity"
+            android:name="com.bzk.questmap.view.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps"
             android:theme="@style/Theme.QuestMap" />
