@@ -1,21 +1,4 @@
-# ÜRÜN SAHİPLERİ
-Zeynep Akçelioğlu – B171210051
-https://github.com/zynpakclgl /
-https://www.linkedin.com/in/zeynepakçelioğlu
+# Summary
+The product aims to save the locations that are important to us and take place in our lives in a single application and to reach those locations easily by getting directions. The real life problem it solves is; It saves time by collecting frequently used locations in a single point and providing convenience in accessing them.
 
-Bedirhan Güner – B171210036
-https://github.com/bedirhanguner /
-https://www.linkedin.com/in/bedirhanguner/
-
-Karaay Karaoğul – B181210054
-https://github.com/karaaykaraogul /
-https://www.linkedin.com/in/karaaykaraogul/
-# TAKIM ADI
-BZK Studio
-# ÜRÜN ADI
-Quest Map
-# ÜRÜNÜN TANIMI
-Ürün kısaca; hayatımızda yer edinen ve bizim için önemli olan lokasyonları tek bir
-uygulamada kaydedip yol tarifi alarak o lokasyonlara kolay bir şekilde ulaşmayı
-hedeflemektedir. Çözdüğü gerçek hayat problemi ise; sık kullanılan konumları tek bir
-noktada toplayıp onlara ulaşım sağlanmasında kolaylık sağlayarak zaman tasarrufu sağlar.
+This app can be found on Google Play Store as "Quest Map".
